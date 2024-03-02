@@ -1,0 +1,147 @@
+
+
+-- rbc  02/03/2024 PCPA
+
+
+
+CREATE TABLE pcpa_unidad_eductiva (
+	id serial4 NOT NULL,
+    cod_ue int4 NULL,
+   	desc_ue varchar(100) NULL, 
+	cod_sie int4 NULL,
+  	cod_rda_director varchar(100) NULL,
+    cod_director  varchar(100) NULL,
+    nombres_director  varchar(255) NULL,
+    apellidos_director  varchar(255) NULL,
+
+	cod_departamento varchar(100) NULL,
+    desc_departamento varchar(500) NULL,
+	cod_municipio varchar(100) NULL,
+    desc_municipio varchar(500) NULL,
+	cod_nivel varchar(100) NULL,
+    desc_nivel varchar(500) NULL,
+	modalidad varchar(100) NULL,
+
+    estado varchar(100),
+    usu_cre varchar(100),
+    usu_mod varchar(100),
+    fec_cre date,
+    fec_mod date,
+	CONSTRAINT pcpa_unidad_educativa_pkey PRIMARY KEY (id)
+);
+
+
+
+-- DROP TABLE pcpa_registro;
+
+CREATE TABLE pcpa_construccion (
+	id serial4 NOT NULL,
+	id_pcpa_unidad_eductiva int4 NULL,
+	fecha_registro timestamp NULL,
+	check_diagnostico_pcpa bool NULL,
+
+    estado varchar(100),
+    usu_cre varchar(100),
+    usu_mod varchar(100),
+    fec_cre date,
+    fec_mod date,
+	CONSTRAINT pcpa_construccion_pkey PRIMARY KEY (id)
+    -- adicionar FK a la tabla: pcpa_registro_ue
+    -- ALTER TABLE public.pcpa_registro ADD CONSTRAINT pcpa_registro_fk FOREIGN KEY (id) REFERENCES pcpa_registro_ue(id);
+);
+
+
+
+
+CREATE TABLE pcpa_comision_tipo (
+	id serial4 NOT NULL,
+    cod_comision_tipo varchar(100) NULL,
+    desc_comision_tipo varchar(500) NULL,
+
+    estado varchar(100),
+    usu_cre varchar(100),
+    usu_mod varchar(100),
+    fec_cre date,
+    fec_mod date,
+	CONSTRAINT pcpa_comision_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE pcpa_miembro_tipo (
+	id serial4 NOT NULL,
+    cod_miembro_tipo varchar(100) NULL,
+    desc_miembro_tipo varchar(500) NULL,
+
+    estado varchar(100),
+    usu_cre varchar(100),
+    usu_mod varchar(100),
+    fec_cre date,
+    fec_mod date,
+	CONSTRAINT pcpa_miembro_tipo_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE pcpa_miembro_comision (
+	id serial4 NOT NULL,
+    id_pcpa_construccion int4 NULL,
+    id_pcpa_comision_tipo int4 NULL,
+    id_pcpa_miembro_tipo int4 NULL,
+    orden int4 NULL,
+	nombres_miembro  varchar(255) NULL,
+    apellidos_miembro  varchar(255) NULL,
+    check_miembro_comision bool NULL,
+    estado varchar(100),
+    usu_cre varchar(100),
+    usu_mod varchar(100),
+    fec_cre date,
+    fec_mod date,
+	CONSTRAINT pcpa_miembro_comision_pkey PRIMARY KEY (id)
+);
+
+
+
+
+CREATE TABLE pcpa_actividades_tipo (
+	id serial4 NOT NULL,
+	cod_actividad varchar(100) NULL,
+    desc_actividad varchar(500) NULL,
+	check_actividad_tipo bool NULL,
+    orden int4 NULL, 
+    estado varchar(100),
+    usu_cre varchar(100),
+    usu_mod varchar(100),
+    fec_cre date,
+    fec_mod date,
+	CONSTRAINT pcpa_actividades_tipo_pkey PRIMARY KEY (id)
+);
+
+
+CREATE TABLE pcpa_actividades_tipo_det (
+	id serial4 NOT NULL,
+    id_pcpa_actividades_tipo int4 NULL,
+	cod_actividad varchar(100) NULL,
+    desc_actividad varchar(500) NULL,
+    check_actividad_tipo_det bool NULL,
+    orden int4 NULL, 
+    estado varchar(100),
+    usu_cre varchar(100),
+    usu_mod varchar(100),
+    fec_cre date,
+    fec_mod date,
+	CONSTRAINT pcpa_actividades_tipo_det_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE pcpa_actividades (
+	id serial4 NOT NULL,
+    id_pcpa_construccion int4 NULL,
+	id_pcpa_actividades_tipo int4 NULL,
+     
+    nivel int4 NULL, -- 1: maestro  , 2: detalle
+    estado varchar(100),
+    usu_cre varchar(100),
+    usu_mod varchar(100),
+    fec_cre date,
+    fec_mod date,
+	CONSTRAINT pcpa_actividades_pkey PRIMARY KEY (id)
+);
+
+--  ALTER TABLE public.pcpa_actividades_tipo DROP CONSTRAINT pcpa_actividades_tipo_pkey;
+
