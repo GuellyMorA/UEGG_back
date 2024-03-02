@@ -1,0 +1,27 @@
+{
+
+    "development": {
+        "username": "postgres",
+        "password": "12345678",
+        "database": "sie_nueva",
+        "host": "localhost",
+        "port": "5432",
+        "dialect": "postgres"
+    },
+    "test": {
+        "username": "test",
+        "password": "test",
+        "database": "sie_desarrollo2",
+        "host": "100.0.100.56",
+        "port": "5432",
+        "dialect": "postgres"
+    },
+    "production": {
+        "username": "prod",
+        "password": "prod",
+        "database": "100.0.100.56",
+        "host": "127.0.0.1",
+        "port": "5432",
+        "dialect": "postgres"
+    }
+}
