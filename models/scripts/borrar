@@ -1,0 +1,70 @@
+
+
+--embarazo adolescente
+-- 1. Registro de estudiante embarazada
+
+-- CREATE TABLE pcpa_unidad_eductiva (
+-- CREATE TABLE pcpa_construccion (
+-- CREATE TABLE pcpa_indicadores_tipo (
+
+CREATE TABLE pcpa_indicadores_tipo (
+	id serial4 NOT NULL,
+	cod_indicadores varchar(100) NULL,
+    desc_indicadores varchar(500) NULL,
+    orden int4 NULL, 
+    estado varchar(100),
+    usu_cre varchar(100),
+    usu_mod varchar(100),
+    fec_cre date,
+    fec_mod date,
+	CONSTRAINT pcpa_indicadores_tipo_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE pcpa_indicador_ejecucion (
+	id serial4 NOT NULL,
+    id_pcpa_construccion int4 NULL,
+    cantidad_acciones_inicial int4 NULL, 
+    cantidad_acciones_final int4 NULL, 
+
+    estado varchar(100),
+    usu_cre varchar(100),
+    usu_mod varchar(100),
+    fec_cre date,
+    fec_mod date,
+	CONSTRAINT pcpa_indicadores_ejecucion_pkey PRIMARY KEY (id)
+);
+
+
+CREATE TABLE pcpa_actividades_ejecutadas (
+	id serial4 NOT NULL,
+  --  id_pcpa_construccion int4 NULL,
+	id_pcpa_indicadores_tipo int4 NULL,
+    id_pcpa_indicador_ejecucion int4 NULL,
+	cod_indicadores varchar(100) NULL, -- ej. 1 
+    desc_indicadores varchar(500) NULL,-- ej. Indicador 
+    fec_ejecucion date,
+    estado varchar(100),
+    usu_cre varchar(100),
+    usu_mod varchar(100),
+    fec_cre date,
+    fec_mod date,
+	CONSTRAINT pcpa_indicadores_ejecutadas_pkey PRIMARY KEY (id)
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

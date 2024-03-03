@@ -1,8 +1,10 @@
 
 
 -- rbc  02/03/2024 PCPA  , hola guelly s y  f
+--subir  aki: https://github.com/GuellyMorA/UEGG_back/tree/desarrollo
 
-
+--convivencia pacifica
+-- 1. Registro de PCPA
 
 CREATE TABLE pcpa_unidad_eductiva (
 	id serial4 NOT NULL,
@@ -129,19 +131,117 @@ CREATE TABLE pcpa_actividades_tipo_det (
 	CONSTRAINT pcpa_actividades_tipo_det_pkey PRIMARY KEY (id)
 );
 
-CREATE TABLE pcpa_actividades (
+CREATE TABLE pcpa_actividades_promocion (
 	id serial4 NOT NULL,
     id_pcpa_construccion int4 NULL,
 	id_pcpa_actividades_tipo int4 NULL,
      
     nivel int4 NULL, -- 1: maestro  , 2: detalle
+    fec_aprobacion date,
+    tiempo_vigencia  int4 NULL,
+    declaracion_jurada bool NULL,
     estado varchar(100),
     usu_cre varchar(100),
     usu_mod varchar(100),
     fec_cre date,
     fec_mod date,
-	CONSTRAINT pcpa_actividades_pkey PRIMARY KEY (id)
+	CONSTRAINT pcpa_actividades_promocion_pkey PRIMARY KEY (id)
 );
 
 --  ALTER TABLE public.pcpa_actividades_tipo DROP CONSTRAINT pcpa_actividades_tipo_pkey;
+-- ALTER TABLE ONLY public.usuario_rol  ADD CONSTRAINT usuario_rol_usuario_id_fkey FOREIGN KEY (usuario_id) REFERENCES public.usuario(id);
+
+
+
+
+
+--convivencia pacifica
+-- 2. Modificación a socialización e implementación 
+
+-- CREATE TABLE pcpa_unidad_eductiva (
+-- CREATE TABLE pcpa_construccion (
+-- CREATE TABLE pcpa_actividades_tipo (
+
+CREATE TABLE pcpa_actividades_ejecutadas (
+	id serial4 NOT NULL,
+    id_pcpa_construccion int4 NULL,
+	id_pcpa_actividades_tipo int4 NULL,
+     
+	cod_actividad varchar(100) NULL, -- ej. 1 
+    desc_actividad varchar(500) NULL,-- ej. Actividad 
+    fec_actividad date,
+    estado varchar(100),
+    usu_cre varchar(100),
+    usu_mod varchar(100),
+    fec_cre date,
+    fec_mod date,
+	CONSTRAINT pcpa_actividades_ejecutadas_pkey PRIMARY KEY (id)
+);
+
+
+
+
+
+
+
+
+
+
+
+--convivencia pacifica
+-- 3. EVALUACION  - Regitro violencia
+
+-- CREATE TABLE pcpa_unidad_eductiva (
+-- CREATE TABLE pcpa_construccion (
+-- CREATE TABLE pcpa_indicadores_tipo (
+
+CREATE TABLE pcpa_indicadores_tipo (
+	id serial4 NOT NULL,
+	cod_indicadores varchar(100) NULL,
+    desc_indicadores varchar(500) NULL,
+    orden int4 NULL, 
+    estado varchar(100),
+    usu_cre varchar(100),
+    usu_mod varchar(100),
+    fec_cre date,
+    fec_mod date,
+	CONSTRAINT pcpa_indicadores_tipo_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE pcpa_indicador_ejecucion (
+	id serial4 NOT NULL,
+    id_pcpa_construccion int4 NULL,
+    cantidad_acciones_inicial int4 NULL, 
+    cantidad_acciones_final int4 NULL, 
+
+    estado varchar(100),
+    usu_cre varchar(100),
+    usu_mod varchar(100),
+    fec_cre date,
+    fec_mod date,
+	CONSTRAINT pcpa_indicadores_ejecucion_pkey PRIMARY KEY (id)
+);
+
+
+CREATE TABLE pcpa_actividades_ejecutadas (
+	id serial4 NOT NULL,
+  --  id_pcpa_construccion int4 NULL,
+	id_pcpa_indicadores_tipo int4 NULL,
+    id_pcpa_indicador_ejecucion int4 NULL,
+	cod_indicadores varchar(100) NULL, -- ej. 1 
+    desc_indicadores varchar(500) NULL,-- ej. Indicador 
+    fec_ejecucion date,
+    estado varchar(100),
+    usu_cre varchar(100),
+    usu_mod varchar(100),
+    fec_cre date,
+    fec_mod date,
+	CONSTRAINT pcpa_indicadores_ejecutadas_pkey PRIMARY KEY (id)
+);
+
+
+
+
+
+
 

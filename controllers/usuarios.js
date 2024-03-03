@@ -145,7 +145,7 @@ module.exports = {
         }
       })
       .catch(err => {
-        res.status(400).send({ message: "Usuario no autorizado"});
+        res.status(400).send({ message: "Usuario no autorizado. " + err});
       });
   },
 
