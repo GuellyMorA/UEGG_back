@@ -6,7 +6,7 @@
 --convivencia pacifica
 -- 1. Registro de PCPA
 
-CREATE TABLE pcpa_unidad_eductiva (
+CREATE TABLE uegg_pcpa_unidad_eductiva (
 	id serial4 NOT NULL,
     cod_ue int4 NULL,
    	desc_ue varchar(100) NULL, 
@@ -29,14 +29,14 @@ CREATE TABLE pcpa_unidad_eductiva (
     usu_mod varchar(100),
     fec_cre date,
     fec_mod date,
-	CONSTRAINT pcpa_unidad_educativa_pkey PRIMARY KEY (id)
+	CONSTRAINT uegg_pcpa_unidad_educativa_pkey PRIMARY KEY (id)
 );
 
 
 
 -- DROP TABLE pcpa_registro;
 
-CREATE TABLE pcpa_construccion (
+CREATE TABLE uegg_pcpa_construccion (
 	id serial4 NOT NULL,
 	id_pcpa_unidad_eductiva int4 NULL,
 	fecha_registro timestamp NULL,
@@ -47,7 +47,7 @@ CREATE TABLE pcpa_construccion (
     usu_mod varchar(100),
     fec_cre date,
     fec_mod date,
-	CONSTRAINT pcpa_construccion_pkey PRIMARY KEY (id)
+	CONSTRAINT uegg_pcpa_construccion_pkey PRIMARY KEY (id)
     -- adicionar FK a la tabla: pcpa_registro_ue
     -- ALTER TABLE public.pcpa_registro ADD CONSTRAINT pcpa_registro_fk FOREIGN KEY (id) REFERENCES pcpa_registro_ue(id);
 );
@@ -55,7 +55,7 @@ CREATE TABLE pcpa_construccion (
 
 
 
-CREATE TABLE pcpa_comision_tipo (
+CREATE TABLE uegg_pcpa_comision_tipo (
 	id serial4 NOT NULL,
     cod_comision_tipo varchar(100) NULL,
     desc_comision_tipo varchar(500) NULL,
@@ -65,10 +65,10 @@ CREATE TABLE pcpa_comision_tipo (
     usu_mod varchar(100),
     fec_cre date,
     fec_mod date,
-	CONSTRAINT pcpa_comision_pkey PRIMARY KEY (id)
+	CONSTRAINT uegg_pcpa_comision_pkey PRIMARY KEY (id)
 );
 
-CREATE TABLE pcpa_miembro_tipo (
+CREATE TABLE uegg_pcpa_miembro_tipo (
 	id serial4 NOT NULL,
     cod_miembro_tipo varchar(100) NULL,
     desc_miembro_tipo varchar(500) NULL,
@@ -78,10 +78,10 @@ CREATE TABLE pcpa_miembro_tipo (
     usu_mod varchar(100),
     fec_cre date,
     fec_mod date,
-	CONSTRAINT pcpa_miembro_tipo_pkey PRIMARY KEY (id)
+	CONSTRAINT uegg_pcpa_miembro_tipo_pkey PRIMARY KEY (id)
 );
 
-CREATE TABLE pcpa_miembro_comision (
+CREATE TABLE uegg_pcpa_miembro_comision (
 	id serial4 NOT NULL,
     id_pcpa_construccion int4 NULL,
     id_pcpa_comision_tipo int4 NULL,
@@ -95,13 +95,13 @@ CREATE TABLE pcpa_miembro_comision (
     usu_mod varchar(100),
     fec_cre date,
     fec_mod date,
-	CONSTRAINT pcpa_miembro_comision_pkey PRIMARY KEY (id)
+	CONSTRAINT uegg_pcpa_miembro_comision_pkey PRIMARY KEY (id)
 );
 
 
 
 
-CREATE TABLE pcpa_actividades_tipo (
+CREATE TABLE uegg_pcpa_actividades_tipo (
 	id serial4 NOT NULL,
 	cod_actividad varchar(100) NULL,
     desc_actividad varchar(500) NULL,
@@ -112,11 +112,11 @@ CREATE TABLE pcpa_actividades_tipo (
     usu_mod varchar(100),
     fec_cre date,
     fec_mod date,
-	CONSTRAINT pcpa_actividades_tipo_pkey PRIMARY KEY (id)
+	CONSTRAINT uegg_pcpa_actividades_tipo_pkey PRIMARY KEY (id)
 );
 
 
-CREATE TABLE pcpa_actividades_tipo_det (
+CREATE TABLE uegg_pcpa_actividades_tipo_det (
 	id serial4 NOT NULL,
     id_pcpa_actividades_tipo int4 NULL,
 	cod_actividad varchar(100) NULL,
@@ -128,10 +128,10 @@ CREATE TABLE pcpa_actividades_tipo_det (
     usu_mod varchar(100),
     fec_cre date,
     fec_mod date,
-	CONSTRAINT pcpa_actividades_tipo_det_pkey PRIMARY KEY (id)
+	CONSTRAINT uegg_pcpa_actividades_tipo_det_pkey PRIMARY KEY (id)
 );
 
-CREATE TABLE pcpa_actividades_promocion (
+CREATE TABLE uegg_pcpa_actividades_promocion (
 	id serial4 NOT NULL,
     id_pcpa_construccion int4 NULL,
 	id_pcpa_actividades_tipo int4 NULL,
@@ -145,7 +145,7 @@ CREATE TABLE pcpa_actividades_promocion (
     usu_mod varchar(100),
     fec_cre date,
     fec_mod date,
-	CONSTRAINT pcpa_actividades_promocion_pkey PRIMARY KEY (id)
+	CONSTRAINT uegg_pcpa_actividades_promocion_pkey PRIMARY KEY (id)
 );
 
 --  ALTER TABLE public.pcpa_actividades_tipo DROP CONSTRAINT pcpa_actividades_tipo_pkey;
@@ -162,7 +162,7 @@ CREATE TABLE pcpa_actividades_promocion (
 -- CREATE TABLE pcpa_construccion (
 -- CREATE TABLE pcpa_actividades_tipo (
 
-CREATE TABLE pcpa_actividades_ejecutadas (
+CREATE TABLE uegg_pcpa_actividades_ejecutadas (
 	id serial4 NOT NULL,
     id_pcpa_construccion int4 NULL,
 	id_pcpa_actividades_tipo int4 NULL,
@@ -175,7 +175,7 @@ CREATE TABLE pcpa_actividades_ejecutadas (
     usu_mod varchar(100),
     fec_cre date,
     fec_mod date,
-	CONSTRAINT pcpa_actividades_ejecutadas_pkey PRIMARY KEY (id)
+	CONSTRAINT uegg_pcpa_actividades_ejecutadas_pkey PRIMARY KEY (id)
 );
 
 
@@ -195,7 +195,7 @@ CREATE TABLE pcpa_actividades_ejecutadas (
 -- CREATE TABLE pcpa_construccion (
 -- CREATE TABLE pcpa_indicadores_tipo (
 
-CREATE TABLE pcpa_indicadores_tipo (
+CREATE TABLE uegg_pcpa_indicadores_tipo (
 	id serial4 NOT NULL,
 	cod_indicadores varchar(100) NULL,
     desc_indicadores varchar(500) NULL,
@@ -205,10 +205,10 @@ CREATE TABLE pcpa_indicadores_tipo (
     usu_mod varchar(100),
     fec_cre date,
     fec_mod date,
-	CONSTRAINT pcpa_indicadores_tipo_pkey PRIMARY KEY (id)
+	CONSTRAINT uegg_pcpa_indicadores_tipo_pkey PRIMARY KEY (id)
 );
 
-CREATE TABLE pcpa_indicador_ejecucion (
+CREATE TABLE uegg_pcpa_indicador_ejecucion (
 	id serial4 NOT NULL,
     id_pcpa_construccion int4 NULL,
     cantidad_acciones_inicial int4 NULL, 
@@ -219,11 +219,11 @@ CREATE TABLE pcpa_indicador_ejecucion (
     usu_mod varchar(100),
     fec_cre date,
     fec_mod date,
-	CONSTRAINT pcpa_indicadores_ejecucion_pkey PRIMARY KEY (id)
+	CONSTRAINT uegg_pcpa_indicadores_ejecucion_pkey PRIMARY KEY (id)
 );
 
 
-CREATE TABLE pcpa_actividades_ejecutadas (
+CREATE TABLE uegg_pcpa_actividades_ejecutadas (
 	id serial4 NOT NULL,
   --  id_pcpa_construccion int4 NULL,
 	id_pcpa_indicadores_tipo int4 NULL,
@@ -236,7 +236,7 @@ CREATE TABLE pcpa_actividades_ejecutadas (
     usu_mod varchar(100),
     fec_cre date,
     fec_mod date,
-	CONSTRAINT pcpa_indicadores_ejecutadas_pkey PRIMARY KEY (id)
+	CONSTRAINT uegg_pcpa_indicadores_ejecutadas_pkey PRIMARY KEY (id)
 );
 
 
@@ -244,4 +244,147 @@ CREATE TABLE pcpa_actividades_ejecutadas (
 
 
 
+--embarazo adolescente
+-- 1. Registro de estudiante embarazada
+
+-- CREATE TABLE pcpa_unidad_eductiva (
+-- CREATE TABLE pcpa_construccion (
+-- CREATE TABLE pcpa_indicadores_tipo (
+
+CREATE TABLE uegg_emb_reporte_embarazo_tipo (
+	id serial4 NOT NULL,
+	cod_reporte varchar(100) NULL,
+    desc_reporte varchar(500) NULL,
+    orden int4 NULL, 
+    estado varchar(100),
+    usu_cre varchar(100),
+    usu_mod varchar(100),
+    fec_cre date,
+    fec_mod date,
+	CONSTRAINT uegg_emb_reporte_embarazo_tipo_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE uegg_emb_informe_embarazo (
+	id serial4 NOT NULL,
+	id_pcpa_unidad_eductiva int4 NULL,
+    id_emb_reporte_embarazo_tipo_1 int4 NULL, 
+    id_emb_reporte_embarazo_tipo_2 int4 NULL, 
+    id_emb_reporte_embarazo_tipo_3 int4 NULL, 
+	
+    estado varchar(100),
+    usu_cre varchar(100),
+    usu_mod varchar(100),
+    fec_cre date,
+    fec_mod date,
+	CONSTRAINT uegg_emb_informe_embarazo_pkey PRIMARY KEY (id)
+);
+
+
+CREATE TABLE uegg_emb_estudiante_embarazo (
+	id serial4 NOT NULL,
+	id_pcpa_unidad_eductiva int4 NULL,
+    id_emb_informe_embarazo int4 NULL,
+
+    cod_rude varchar(50) NULL,
+    cedula_identidad varchar(50) NULL,
+    complemento varchar(10) NULL,
+    fec_nacimiento date,
+
+	nombres_estudiante  varchar(255) NULL,
+    apellido_pat_estudiante  varchar(255) NULL,
+    apellido_mat_estudiante  varchar(255) NULL,
+    nivel  varchar(255) NULL,
+    grado  varchar(255) NULL,
+    edad int4 NOT NULL,
+    check_estudiante_discapacidad bool NULL,
+    check_estudiante_casada bool NULL,
+    check_estudiante_conviviente bool NULL,
+ 
+    estado varchar(100),
+    usu_cre varchar(100),
+    usu_mod varchar(100),
+    fec_cre date,
+    fec_mod date,
+	CONSTRAINT uegg_pcpa_indicadores_ejecutadas_pkey PRIMARY KEY (id)
+);
+
+-- embarazo adolescente
+--2. Seguimiento y actuación para cumplimiento de derechos 
+
+
+CREATE TABLE uegg_emb_estudiante_embarazo (
+	id serial4 NOT NULL,
+	id_pcpa_unidad_eductiva int4 NULL,
+    id_emb_informe_embarazo int4 NULL,
+
+    cod_rude varchar(50) NULL,
+    nombres_apellidos varchar(500) NULL,
+
+    complemento varchar(10) NULL,
+    fec_nacimiento date,
+    tiempo_gestacion int4 NOT NULL,
+    numero_embarazos int4 NOT NULL,
+    fec_estimada_parto date,
+    check_recibe_control_prenatal bool NULL,
+check_requiere_baja_medica NULL,
+check_requiere_permiso_para_control bool NULL,
+check_requiere_cuidado_especial bool NULL,
+check_cuenta_con_medidas_ue bool NULL,
+   -- fec_baja_prenatal date,
+     --   fec_baja_postnatal detalle,
+            fec_retorno_a_ue date,
+
+check_tutores_al_tanto_emb bool NULL,
+check_recibe_baja_medica bool NULL,
+check_recibe_permiso_controles_prenatales bool NULL,
+            fec_ini_baja_prenatal date,
+            fec_fin_baja_postnatal date,
+
+	persona_asignada_seguimiento  varchar(500) NULL,
+    check_cuenta_con_seguimiento bool NULL,
+ 
+    estado varchar(100),
+    usu_cre varchar(100),
+    usu_mod varchar(100),
+    fec_cre date,
+    fec_mod date,
+	CONSTRAINT uegg_emb_estudiante_embarazo_pkey PRIMARY KEY (id)
+);
+
+
+
+
+--3.Seguimiento y actuación para cumplimiento de derechos
+
+
+
+CREATE TABLE uegg_emb_estudiante_embarazo (
+	id serial4 NOT NULL,
+	id_pcpa_unidad_eductiva int4 NULL,
+    id_emb_informe_embarazo int4 NULL,
+
+    cod_rude varchar(50) NULL,
+    nombres_apellidos varchar(500) NULL,
+
+
+    check_emb_relacion_concensuada bool NULL,
+    check_emb_agresion_sexual bool NULL,
+check_director_victima_violencia NULL,
+	cod_caso_denuncia  varchar(100) NULL,
+   	nombre_adolescente  varchar(500) NULL,
+    fec_denuncia date,
+
+	motivo_queja  varchar(500) NULL,
+   	acciones_a_seguir  varchar(500) NULL,
+   
+ 
+    estado varchar(100),
+    usu_cre varchar(100),
+    usu_mod varchar(100),
+    fec_cre date,
+    fec_mod date,
+	CONSTRAINT uegg_emb_estudiante_embarazo_pkey PRIMARY KEY (id)
+);
+
+-- fin rbc
 
