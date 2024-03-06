@@ -208,7 +208,7 @@ CREATE TABLE uegg_pcpa_indicadores_tipo (
 	CONSTRAINT uegg_pcpa_indicadores_tipo_pkey PRIMARY KEY (id)
 );
 
-CREATE TABLE uegg_pcpa_indicador_ejecucion (
+CREATE TABLE uegg_pcpa_accciones_ejecucion (
 	id serial4 NOT NULL,
     id_pcpa_construccion int4 NULL,
     cantidad_acciones_inicial int4 NULL, 
@@ -219,11 +219,11 @@ CREATE TABLE uegg_pcpa_indicador_ejecucion (
     usu_mod varchar(100),
     fec_cre date,
     fec_mod date,
-	CONSTRAINT uegg_pcpa_indicadores_ejecucion_pkey PRIMARY KEY (id)
+	CONSTRAINT uegg_pcpa_acciones_ejecucion_pkey PRIMARY KEY (id)
 );
 
 
-CREATE TABLE uegg_pcpa_actividades_ejecutadas (
+CREATE TABLE uegg_pcpa_indicadors_ejecucion (
 	id serial4 NOT NULL,
   --  id_pcpa_construccion int4 NULL,
 	id_pcpa_indicadores_tipo int4 NULL,
@@ -236,7 +236,7 @@ CREATE TABLE uegg_pcpa_actividades_ejecutadas (
     usu_mod varchar(100),
     fec_cre date,
     fec_mod date,
-	CONSTRAINT uegg_pcpa_indicadores_ejecutadas_pkey PRIMARY KEY (id)
+	CONSTRAINT uegg_pcpa_indicadores_ejecucion_pkey PRIMARY KEY (id)
 );
 
 
@@ -305,14 +305,14 @@ CREATE TABLE uegg_emb_estudiante_embarazo (
     usu_mod varchar(100),
     fec_cre date,
     fec_mod date,
-	CONSTRAINT uegg_pcpa_indicadores_ejecutadas_pkey PRIMARY KEY (id)
+	CONSTRAINT uegg_emb_estudiante_embarazo_pkey PRIMARY KEY (id)
 );
 
 -- embarazo adolescente
 --2. Seguimiento y actuación para cumplimiento de derechos 
 
 
-CREATE TABLE uegg_emb_estudiante_embarazo (
+CREATE TABLE uegg_emb_estudiante_derechos (
 	id serial4 NOT NULL,
 	id_pcpa_unidad_eductiva int4 NULL,
     id_emb_informe_embarazo int4 NULL,
@@ -326,7 +326,7 @@ CREATE TABLE uegg_emb_estudiante_embarazo (
     numero_embarazos int4 NOT NULL,
     fec_estimada_parto date,
     check_recibe_control_prenatal bool NULL,
-check_requiere_baja_medica NULL,
+check_requiere_baja_medica bool NULL,
 check_requiere_permiso_para_control bool NULL,
 check_requiere_cuidado_especial bool NULL,
 check_cuenta_con_medidas_ue bool NULL,
@@ -348,7 +348,7 @@ check_recibe_permiso_controles_prenatales bool NULL,
     usu_mod varchar(100),
     fec_cre date,
     fec_mod date,
-	CONSTRAINT uegg_emb_estudiante_embarazo_pkey PRIMARY KEY (id)
+	CONSTRAINT uegg_emb_estudiante_derechos_pkey PRIMARY KEY (id)
 );
 
 
@@ -358,7 +358,7 @@ check_recibe_permiso_controles_prenatales bool NULL,
 
 
 
-CREATE TABLE uegg_emb_estudiante_embarazo (
+CREATE TABLE uegg_emb_estudiante_derechos_seg (
 	id serial4 NOT NULL,
 	id_pcpa_unidad_eductiva int4 NULL,
     id_emb_informe_embarazo int4 NULL,
@@ -369,7 +369,7 @@ CREATE TABLE uegg_emb_estudiante_embarazo (
 
     check_emb_relacion_concensuada bool NULL,
     check_emb_agresion_sexual bool NULL,
-check_director_victima_violencia NULL,
+check_director_victima_violencia bool NULL,
 	cod_caso_denuncia  varchar(100) NULL,
    	nombre_adolescente  varchar(500) NULL,
     fec_denuncia date,
@@ -383,7 +383,7 @@ check_director_victima_violencia NULL,
     usu_mod varchar(100),
     fec_cre date,
     fec_mod date,
-	CONSTRAINT uegg_emb_estudiante_embarazo_pkey PRIMARY KEY (id)
+	CONSTRAINT uegg_emb_estudiante_derechos_seg_pkey PRIMARY KEY (id)
 );
 
 -- fin rbc
