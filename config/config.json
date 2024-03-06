@@ -3,7 +3,7 @@
     "development": {
         "username": "postgres",
         "password": "123",
-        "database": "uegg",
+        "database": "postgres",
         "host": "localhost",
         "port": "5432",
         "dialect": "postgres"
@@ -11,7 +11,7 @@
     "test": {
         "username": "test",
         "password": "test",
-        "database": "sie_desarrollo2",
+        "database": "uegg",
         "host": "100.0.100.56",
         "port": "5432",
         "dialect": "postgres"
