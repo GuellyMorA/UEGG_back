@@ -6,7 +6,7 @@
 --convivencia pacifica
 -- 1. Registro de PCPA
 
-CREATE TABLE uegg_pcpa_unidad_eductiva (
+CREATE TABLE uegg_pcpa_unidad_educativa (
 	id serial4 NOT NULL,
     cod_ue int4 NULL,
    	desc_ue varchar(100) NULL, 
@@ -326,10 +326,10 @@ CREATE TABLE uegg_emb_estudiante_embarazo (
     numero_embarazos int4 NOT NULL,
     fec_estimada_parto date,
     check_recibe_control_prenatal bool NULL,
-check_requiere_baja_medica NULL,
-check_requiere_permiso_para_control bool NULL,
-check_requiere_cuidado_especial bool NULL,
-check_cuenta_con_medidas_ue bool NULL,
+    check_requiere_baja_medica NULL,
+    check_requiere_permiso_para_control bool NULL,
+    check_requiere_cuidado_especial bool NULL,
+    check_cuenta_con_medidas_ue bool NULL,
    -- fec_baja_prenatal date,
      --   fec_baja_postnatal detalle,
             fec_retorno_a_ue date,
@@ -388,3 +388,304 @@ check_director_victima_violencia NULL,
 
 -- fin rbc
 
+
+-- violencia 
+-- 1. Registro de estudiante de violencia
+
+CREATE TABLE uegg_violencia_victima_nombre (
+	id serial4 NOT NULL,
+    cod_ue int4 NULL,
+   	desc_ue varchar(100) NULL, 
+	cod_sie int4 NULL,
+  	cod_rda_director varchar(100) NULL,
+    cod_director  varchar(100) NULL,
+    
+    cod_rude int4 NOT NULL,
+    nombres_victima varchar(255) NULL,
+    apellido_pat_victima varchar(255) NULL,
+    apellido_mat_victima varchar(255) NULL,
+	fec_nac date,
+    sexo varchar(100),
+    genero varchar(100),
+    nivel varchar(100),
+    grado varchar(100), 
+    dir_actual varchar(500) NULL,
+	celular_contacto varchar(100) NULL,
+    
+    estado varchar(100),
+    usu_cre varchar(100),
+    usu_mod varchar(100),
+    fec_cre date,
+    fec_mod date,
+	CONSTRAINT uegg_violencia_victima_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE uegg_violencia_caso_agresor (
+	id serial4 NOT NULL,
+    num_caso int4 NULL,
+    fec_agresion date,
+    num_agresores int4 NULL,
+   	    
+    estado varchar(100),
+    usu_cre varchar(100),
+    usu_mod varchar(100),
+    fec_cre date,
+    fec_mod date,
+	CONSTRAINT uegg_violencia_caso_agresor_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE uegg_violencia_agresor_nombre (
+	id serial4 NOT NULL,
+    id_violencia_caso_agresor int4 NULL,
+    cod_rda int4 NULL,
+    num_ci int4,
+    num_comp varchar(100),
+    apellido_pat_agresor varchar(250),
+    apellido_mat_agresor varchar(250),
+    nombres_agresor varchar(250),
+    fec_nac date,
+    sexo varchar(100),
+    genero varchar(100),
+    cargo_ocupa varchar(150),
+    nivel varchar(100),
+    dir_actual varchar(250),
+    celular_contacto varchar(100),
+    correo_electronico varchar(100)
+   	    
+    estado varchar(100),
+    usu_cre varchar(100),
+    usu_mod varchar(100),
+    fec_cre date,
+    fec_mod date,
+	CONSTRAINT uegg_violencia_agresor_nombre_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE uegg_violencia_caso_comunicacion (
+	id serial4 NOT NULL,
+    id_violencia_caso_agresor int4 NULL,
+    id_violencia_hecho_tipo int4,
+    comunicacion_tutores bool NULL,
+    desc_hecho varchar(20),
+               	    
+    estado varchar(100),
+    usu_cre varchar(100),
+    usu_mod varchar(100),
+    fec_cre date,
+    fec_mod date,
+	CONSTRAINT uegg_violencia_caso_comunicacion PRIMARY KEY (id)
+);
+
+CREATE TABLE uegg_violencia_dna (
+	id serial4 NOT NULL,
+    id_num_caso int4 NULL,
+    fec_agresion date,
+    ref_den varchar(100),
+    fec_ref_den date,
+    id_violencia_instancia_den_tipo varchar(100),
+       	    
+    estado varchar(100),
+    usu_cre varchar(100),
+    usu_mod varchar(100),
+    fec_cre date,
+    fec_mod date,
+	CONSTRAINT uegg_violencia_dna_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE uegg_violencia_instancia_tipo (
+	id serial4 NOT NULL,
+    desc_instancia varchar(250),
+       	    
+    estado varchar(100),
+    usu_cre varchar(100),
+    usu_mod varchar(100),
+    fec_cre date,
+    fec_mod date,
+	CONSTRAINT uegg_violencia_instancia_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE uegg_violencia_caso_dna (
+	id serial4 NOT NULL,
+    id_num_caso int4 NULL,
+    id_violencia_victima int4 NULL,
+    id_violencia_agresor_nombre int4 NULL,
+    id_violencia_hecho_tipo int4,
+    desc_hecho varchar(250),
+    recepcion_ficha bool,
+          	    
+    estado varchar(100),
+    usu_cre varchar(100),
+    usu_mod varchar(100),
+    fec_cre date,
+    fec_mod date,
+	CONSTRAINT uegg_violencia_caso_dna_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE uegg_violencia_hecho_tipo (
+	id serial4 NOT NULL,
+    desc_hecho_tipo varchar(250),
+       	    
+    estado varchar(100),
+    usu_cre varchar(100),
+    usu_mod varchar(100),
+    fec_cre date,
+    fec_mod date,
+	CONSTRAINT uegg_violencia_hecho_tipo_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE uegg_violencia_acciones_tipo (
+	id serial4 NOT NULL,
+    desc_acciones_tipo varchar(250),
+       	    
+    estado varchar(100),
+    usu_cre varchar(100),
+    usu_mod varchar(100),
+    fec_cre date,
+    fec_mod date,
+	CONSTRAINT uegg_violencia_acciones_tipo_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE uegg_violencia_comunicacion_distrital (
+	id serial4 NOT NULL,
+    id_num_caso int4 NULL,
+    fec_comunicacion date,
+    id_violencia_caso int4,
+    id_violencia_victima_nombre int4,
+    id_violencia_agresor_nombre int4,
+    id_acciones_realizadas_tipo int4,
+    id_violencia_instancia_tipo int4,
+    fec_comunicacion_distrital date,
+           	    
+    estado varchar(100),
+    usu_cre varchar(100),
+    usu_mod varchar(100),
+    fec_cre date,
+    fec_mod date,
+	CONSTRAINT uegg_violencia_comunicacion_distrital_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE uegg_violencia_comunicacion_deptal (
+	id serial4 NOT NULL,
+    id_num_caso int4 NULL,
+    fec_comunicacion date,
+    id_violencia_caso int4,
+    id_violencia_victima_nombre int4,
+    id_violencia_agresor_nombre int4,
+    id_acciones_realizadas_tipo int4,
+    id_violencia_instancia_tipo int4,
+    fec_comunicacion_deptal date,
+           	    
+    estado varchar(100),
+    usu_cre varchar(100),
+    usu_mod varchar(100),
+    fec_cre date,
+    fec_mod date,
+	CONSTRAINT uegg_violencia_comunicacion_deptal_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE uegg_violencia_seg_sanciones (
+	id serial4 NOT NULL,
+    id_num_caso int4 NULL,
+    id_violencia_victima_nombre int4,
+    ini_victi varchar(100),
+    id_violencia_agresor_nombre int4,
+    ini_agre varchar(100),
+    remision_dir_deptal bool,
+    fec_agresion date,
+    id_violencia_sanciones_tipo varchar(250),
+    cumplir_sancion bool,
+    comu_tutor bool,
+    comu_victima bool,
+
+    estado varchar(100),
+    usu_cre varchar(100),
+    usu_mod varchar(100),
+    fec_cre date,
+    fec_mod date,
+	CONSTRAINT uegg_violencia_seg_sanciones_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE uegg_violencia_seg_infraccion (
+	id serial4 NOT NULL,
+    id_num_caso int4 NULL,
+    caso_remitido_juez bool,
+    caso remitido_otra_instancia bool,
+    dna_remision_referencia bool,
+    inicio_proceso_admi bool,
+    id_tipo_Sancion int4,
+    sancion_cumplida bool,
+    com_tutor varchar(100),
+    medidas_protec bool,
+    denuncia_minpub bool,
+    id_quien_denuncia varchar(100)
+       	    
+    estado varchar(100),
+    usu_cre varchar(100),
+    usu_mod varchar(100),
+    fec_cre date,
+    fec_mod date,
+	CONSTRAINT uegg_violencia_seg_infraccion_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE uegg_violencia_quien_denuncia_tipo (
+	id serial4 NOT NULL,
+    desc_acciones_tipo varchar(250),
+       	    
+    estado varchar(100),
+    usu_cre varchar(100),
+    usu_mod varchar(100),
+    fec_cre date,
+    fec_mod date,
+	CONSTRAINT uegg_violencia_quien_denuncia_tipo_pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE uegg_violencia_seg_sanciones_del (
+	id serial4 NOT NULL,
+    id_num_caso int4 NULL,
+    id_violencia_seg_sanciones int4,
+    denuncia_minpub bool,
+    id_quien_denuncia varchar(100)
+       	    
+    estado varchar(100),
+    usu_cre varchar(100),
+    usu_mod varchar(100),
+    fec_cre date,
+    fec_mod date,
+	CONSTRAINT uegg_violencia_seg_sanciones_del _pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE uegg_violencia_seg_ds (
+	id serial4 NOT NULL,
+    id_num_caso int4 NULL,
+    id_violencia_seg_sanciones int4,
+    id_etapa_preliminar_tipo int4,
+    id_etapa_preparatoria_tipo int4,
+    id_juicio_act_formal_tipo int4,
+    apelacion bool,
+    cazacion bool,
+    id_otras_formas_conclusion_tipo varchar(100),
+
+    estado varchar(100),
+    usu_cre varchar(100),
+    usu_mod varchar(100),
+    fec_cre date,
+    fec_mod date,
+	CONSTRAINT uegg_violencia_seg_sanciones_del _pkey PRIMARY KEY (id)
+);
+
+CREATE TABLE uegg_violencia_proce_seg_ds (
+	id serial4 NOT NULL,
+    id_num_caso int4 NULL,
+    id_violencia_seg_sanciones int4,
+    id_auto_inicial int4,
+    id_auto_inicial_tipo int4,
+    id_auto_final_tipo int4,
+    id_recurso_revocatorio int4,
+    id_recurso_juridico int4,
+      	    
+    estado varchar(100),
+    usu_cre varchar(100),
+    usu_mod varchar(100),
+    fec_cre date,
+    fec_mod date,
+	CONSTRAINT uegg_violencia_proce_seg_ds_pkey PRIMARY KEY (id)
+);
