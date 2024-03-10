@@ -1,5 +1,4 @@
-const InfraInternetEmpresasTipo = require('../../models/infraestructura').infra_internet_empresa_servicio_tipo ; // rbc infraInternetEmpresasTipo;
-
+const InfraInternetEmpresasTipo = require('../../models/infraestructura').infra_internet_empresa_servicio_tipo ; 
 module.exports = {
     list(req, res) {
         return InfraInternetEmpresasTipo

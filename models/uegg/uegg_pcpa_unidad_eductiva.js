@@ -7,7 +7,14 @@
 
  module.exports = (sequelize, DataTypes) => {  
  const   UeggPcpaUnidadEductiva = sequelize.define('uegg_pcpa_unidad_eductiva', {
-	id: DataTypes.INTEGER,
+    id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: true,
+        field: 'id'
+    },
+    
     cod_ue: DataTypes.INTEGER,
    	desc_ue: DataTypes.STRING, 
 	cod_sie: DataTypes.INTEGER,
@@ -29,10 +36,12 @@
     usu_mod: DataTypes.STRING,
     fec_cre: DataTypes.DATE,
     fec_mod: DataTypes.DATE
-  }, {         tableName: 'uegg_pcpa_unidad_eductiva',       
-  timestamps: false,     });   
-  UeggPcpaUnidadEductiva.associate = function(models) {      
+  }, {       
+      tableName: 'uegg_pcpa_unidad_eductiva',       
+      timestamps: false,     });   
+      UeggPcpaUnidadEductiva.associate = function(models) {      
   
-  };     return UeggPcpaUnidadEductiva; };
+  };     
+      return UeggPcpaUnidadEductiva; };
 
 

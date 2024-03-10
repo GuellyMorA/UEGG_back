@@ -7,7 +7,7 @@ const infraInternetDisponibilidadServicioTipo = require('../controllers/infraest
 
 const infraInternetEmpresasTipo = require('../controllers/infraestructura/infraInternetEmpresasTipo');
 const infraInternetPersonasTipo = require('../controllers/infraestructura/infraInternetPersonasTipo');
-const infra_internet_servicio = require('../models/infraestructura/infra_internet_servicio');
+
 var router = express.Router();
 const InfraAccesoMedioController = require('../controllers').infraAccesoMedio;
 const InfraAccesoMedioGradaRampaController = require('../controllers').infraAccesoMedioGradaRampa;
@@ -624,6 +624,9 @@ router.get('/infraInternetEmpresasTipo', infraInternetEmpresasTipo.list);
 router.get('/infraInternetPersonasTipo', infraInternetPersonasTipo.list);
 router.get('/infraInternetDisponibilidadTipo', infraInternetDisponibilidadTipo.list);
 router.get('/infraInternetDisponibilidadServicioTipo', infraInternetDisponibilidadServicioTipo.list);// rbc 
+
+
+
 //Rutas para Reportes
 router.get('/reportesDatos/:idpredio', ReportesController.getReporteDatos);
 router.get('/reportesCaracteristicas/:idpredio', ReportesController.getReporteCaracteristicas);
