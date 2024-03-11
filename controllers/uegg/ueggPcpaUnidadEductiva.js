@@ -56,7 +56,7 @@ module.exports = {
                 apellidos_director: req.body.apellidos_director || ueggPcpaUnidadEductiva.apellidos_director,
                 cod_rda_director: req.body.cod_rda_director || ueggPcpaUnidadEductiva.cod_rda_director,
                 cod_director: req.body.cod_director || ueggPcpaUnidadEductiva.cod_director,
-                estado: 'MODIFICADO',   //req.body.estado
+                estado: 'MODIFICADO',  
                 usu_mod: req.body.usu_mod ,
                 fec_mod: req.body.fec_mod
               })

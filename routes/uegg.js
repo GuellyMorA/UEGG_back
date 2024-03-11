@@ -19,7 +19,7 @@ const UeggPcpaConstruccionController        =  require('../controllers/uegg/uegg
 const UeggPcpaComisionTipoController        =  require('../controllers/uegg/ueggPcpaComisionTipo');
 const UeggViolenciaDnaController        =  require('../controllers/uegg/ueggViolenciaDna');
 
-// 
+const ueggViolenciahAccionesTipoController        =  require('../controllers/uegg/ueggViolenciahAccionesTipo');
 
 router.get('/', function (req, res, next) {
     // res.send('respond with a resource');
@@ -32,6 +32,7 @@ router.get('/ueggPcpaUnidadEductiva'        , UeggPcpaUnidadEductivaController.l
 router.get('/ueggPcpaConstruccion'          , UeggPcpaConstruccionController.list);
 router.get('/ueggPcpaComisionTipo'          , UeggPcpaComisionTipoController.list);
 router.get('/ueggViolenciaDna'        , UeggViolenciaDnaController.list);
+router.get('/ueggViolenciahAccionesTipo'        , ueggViolenciahAccionesTipoController.list);
 
 
 router.get('/ueggPcpaUnidadEductiva/:id'    , UeggPcpaUnidadEductivaController.getById);
