@@ -14,7 +14,6 @@
         autoIncrement: true,
         field: 'id'
     },
-    
     cod_ue: DataTypes.INTEGER,
    	desc_ue: DataTypes.STRING, 
 	cod_sie: DataTypes.INTEGER,

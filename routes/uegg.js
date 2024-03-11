@@ -14,11 +14,12 @@ const upload = multer({
 });
 
 
-const ueggPcpaUnidadEductivaController = require('../controllers/uegg/ueggPcpaUnidadEductiva');
-const ueggPcpaConstruccionController =  require('../controllers/uegg/ueggPcpaConstruccion');
-const ueggPcpaComisionTipoController =  require('../controllers/uegg/ueggPcpaConstruccion');
+const UeggPcpaUnidadEductivaController      =  require('../controllers/uegg/ueggPcpaUnidadEductiva');
+const UeggPcpaConstruccionController        =  require('../controllers/uegg/ueggPcpaConstruccion');
+const UeggPcpaComisionTipoController        =  require('../controllers/uegg/ueggPcpaComisionTipo');
+const UeggViolenciaDnaController        =  require('../controllers/uegg/ueggViolenciaDna');
 
-
+// 
 
 router.get('/', function (req, res, next) {
     // res.send('respond with a resource');
@@ -27,9 +28,22 @@ router.get('/', function (req, res, next) {
 
 
 
-router.get('/ueggPcpaUnidadEductiva', ueggPcpaUnidadEductivaController.list);
-router.get('/ueggPcpaConstruccion', ueggPcpaConstruccionController.list);
-router.get('/ueggPcpaComisionTipo',ueggPcpaComisionTipoController.list);
+router.get('/ueggPcpaUnidadEductiva'        , UeggPcpaUnidadEductivaController.list);
+router.get('/ueggPcpaConstruccion'          , UeggPcpaConstruccionController.list);
+router.get('/ueggPcpaComisionTipo'          , UeggPcpaComisionTipoController.list);
+router.get('/ueggViolenciaDna'        , UeggViolenciaDnaController.list);
+
+
+router.get('/ueggPcpaUnidadEductiva/:id'    , UeggPcpaUnidadEductivaController.getById);
+
+
+router.post('/ueggPcpaUnidadEductiva'       , UeggPcpaUnidadEductivaController.add);
+
+
+router.put('/ueggPcpaUnidadEductiva/:Id'    , UeggPcpaUnidadEductivaController.update);
+
+
+router.delete('/ueggPcpaUnidadEductiva/:Id' , UeggPcpaUnidadEductivaController.delete);
 
 
 
@@ -38,9 +52,7 @@ module.exports = router;
 
 
 
-
-
-/*router.get('/infraAccesoMedio/:id', InfraAccesoMedioController.getById);
+/*
 router.get('/infraAccesoMedioTodo/:idpredio', InfraAccesoMedioController.getGradaRampaSenial);
 
 
