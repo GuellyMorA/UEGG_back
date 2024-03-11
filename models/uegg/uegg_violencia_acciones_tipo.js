@@ -1,7 +1,13 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const UeggViolenciahAccionesTipo = sequelize.define('uegg_violencia_acciones_tipo', {
-    id: DataTypes.INTEGER,
+    id: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        primaryKey: true,
+        autoIncrement: true,
+        field: 'id'
+    },
     descripcion: DataTypes.STRING,
     
     estado: DataTypes.STRING,

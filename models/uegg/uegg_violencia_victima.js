@@ -6,7 +6,13 @@
 // 1. Registro víctima
 module.exports = (sequelize, DataTypes) => {
   const UeggViolenciaVictima = sequelize.define('uegg_violencia_victima', {
-    id: DataTypes.INTEGER,
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+      field: 'id'
+  },
     cod_ue: DataTypes.INTEGER,
     desc_ue: DataTypes.STRING,
     cod_sie: DataTypes.INTEGER,

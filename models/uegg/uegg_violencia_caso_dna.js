@@ -1,7 +1,13 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const UeggViolenciaCasoDna = sequelize.define('uegg_violencia_caso_dna', {
-    id: DataTypes.INTEGER,
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      primaryKey: true,
+      autoIncrement: true,
+      field: 'id'
+  },
     id_num_caso: DataTypes.INTEGER,
     id_violencia_victima: DataTypes.INTEGER,
     id_violencia_agresor_nombre: DataTypes.INTEGER,
