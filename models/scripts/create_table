@@ -457,7 +457,7 @@ CREATE TABLE uegg_violencia_agresor (
     nivel varchar(100),
     dir_actual varchar(250),
     celular_contacto varchar(100),
-    correo_electronico varchar(100)
+    correo_electronico varchar(100),
    	    
     estado varchar(100),
     usu_cre varchar(100),
@@ -479,7 +479,7 @@ CREATE TABLE uegg_violencia_caso_com (
     usu_mod varchar(100),
     fec_cre date,
     fec_mod date,
-	CONSTRAINT uegg_violencia_caso_com PRIMARY KEY (id)
+	CONSTRAINT uegg_violencia_caso_com_pkey PRIMARY KEY (id)
 );
 
 CREATE TABLE uegg_violencia_dna (
@@ -658,7 +658,7 @@ CREATE TABLE uegg_violencia_seg_sanciones_del (
     usu_mod varchar(100),
     fec_cre date,
     fec_mod date,
-	CONSTRAINT uegg_violencia_seg_sanciones_del _pkey PRIMARY KEY (id)
+	CONSTRAINT uegg_violencia_seg_sanciones_del_pkey PRIMARY KEY (id)
 );
 
 CREATE TABLE uegg_violencia_seg_ds (
@@ -678,7 +678,7 @@ CREATE TABLE uegg_violencia_seg_ds (
     usu_mod varchar(100),
     fec_cre date,
     fec_mod date,
-	CONSTRAINT uegg_violencia_seg_sanciones_del _pkey PRIMARY KEY (id)
+	CONSTRAINT uegg_violencia_seg_ds_pkey PRIMARY KEY (id)
 );
 
 CREATE TABLE uegg_violencia_proce_seg_ds (
@@ -709,6 +709,7 @@ CREATE TABLE uegg_violencia_auto_final_tipo (
     fec_cre date,
     fec_mod date,
 	CONSTRAINT uegg_violencia_auto_final_tipo_pkey PRIMARY KEY (id)
+);	
 
 CREATE TABLE uegg_violencia_auto_inicial_tipo (
 	id serial4 NOT NULL,
@@ -720,6 +721,7 @@ CREATE TABLE uegg_violencia_auto_inicial_tipo (
     fec_cre date,
     fec_mod date,
 	CONSTRAINT uegg_violencia_auto_inicial_tipo_pkey PRIMARY KEY (id)
+);
 
 CREATE TABLE uegg_violencia_etapa_preliminar_tipo (
 	id serial4 NOT NULL,
@@ -731,6 +733,7 @@ CREATE TABLE uegg_violencia_etapa_preliminar_tipo (
     fec_cre date,
     fec_mod date,
 	CONSTRAINT uegg_violencia_etapa_preliminar_tipo_pkey PRIMARY KEY (id)
+);
 
 CREATE TABLE uegg_violencia_etapa_preparatoria_tipo (
 	id serial4 NOT NULL,
@@ -742,7 +745,8 @@ CREATE TABLE uegg_violencia_etapa_preparatoria_tipo (
     fec_cre date,
     fec_mod date,
 	CONSTRAINT uegg_violencia_etapa_preparatoria_tipo_pkey PRIMARY KEY (id)
-
+);	
+	
 CREATE TABLE uegg_violencia_jucio_ac_formal_tipo (
 	id serial4 NOT NULL,
     descripcion varchar(250),
@@ -753,6 +757,8 @@ CREATE TABLE uegg_violencia_jucio_ac_formal_tipo (
     fec_cre date,
     fec_mod date,
 	CONSTRAINT uegg_violencia_jucio_ac_formal_tipo_pkey PRIMARY KEY (id)
+);
+	
 
 CREATE TABLE uegg_violencia_otras_form_tipo (
 	id serial4 NOT NULL,
@@ -764,6 +770,7 @@ CREATE TABLE uegg_violencia_otras_form_tipo (
     fec_cre date,
     fec_mod date,
 	CONSTRAINT uegg_violencia_otras_form_tipo_pkey PRIMARY KEY (id)
+);
 
 CREATE TABLE uegg_violencia_rec_ju_tipo (
 	id serial4 NOT NULL,
@@ -774,7 +781,9 @@ CREATE TABLE uegg_violencia_rec_ju_tipo (
     usu_mod varchar(100),
     fec_cre date,
     fec_mod date,
-	CONSTRAINT uegg_violencia_rec_ju_tipo_pkey PRIMARY KEY (id) 
+	CONSTRAINT uegg_violencia_rec_ju_tipo_pkey PRIMARY KEY (id)
+);
+	
 
 CREATE TABLE uegg_violencia_rec_rev_tipo (
 	id serial4 NOT NULL,
@@ -785,7 +794,9 @@ CREATE TABLE uegg_violencia_rec_rev_tipo (
     usu_mod varchar(100),
     fec_cre date,
     fec_mod date,
-	CONSTRAINT uegg_violencia_rec_rev_tipo_pkey PRIMARY KEY (id) 
+	CONSTRAINT uegg_violencia_rec_rev_tipo_pkey PRIMARY KEY (id)
+);	
+
 
 CREATE TABLE uegg_violencia_sancion_tipo (
 	id serial4 NOT NULL,
@@ -796,5 +807,5 @@ CREATE TABLE uegg_violencia_sancion_tipo (
     usu_mod varchar(100),
     fec_cre date,
     fec_mod date,
-	CONSTRAINT uegg_violencia_sancion_tipo_pkey PRIMARY KEY (id) 
-
+	CONSTRAINT uegg_violencia_sancion_tipo_pkey PRIMARY KEY (id)
+);

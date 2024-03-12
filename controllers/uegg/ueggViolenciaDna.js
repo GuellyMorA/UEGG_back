@@ -28,7 +28,11 @@ module.exports = {
 
     add(req, res) {
         return UeggViolenciaDna.create({
-  
+            id_num_caso: req.body.id_num_caso,
+            fec_agresion: req.body.fec_agresion,
+            ref_den: req.body.ref_den,
+            fec_ref_den: req.body.fec_ref_den,
+            id_violencia_instancia_den_tipo: req.body.id_violencia_instancia_den_tipo,
             estado: 'ACTIVO' ,
             usu_cre: req.body.usu_cre ,
             fec_cre: req.body.fec_cre 
@@ -49,8 +53,13 @@ module.exports = {
             }
             return ueggViolenciaDna
               .update({
-                estado: 'MODIFICADO',   //req.body.estado
-                usu_mod: req.body.usu_mod ,
+                id_num_caso: req.body.id_num_caso || ueggViolenciaDna.id_num_caso,
+                fec_agresion: req.body.fec_agresion || ueggViolenciaDna.fec_agresion,
+                ref_den: req.body.ref_den || ueggViolenciaDna.ref_den,
+                fec_ref_den: req.body.fec_ref_den || ueggViolenciaDna.fec_ref_den,
+                id_violencia_instancia_den_tipo: req.body.id_violencia_instancia_den_tipo || ueggViolenciaDna.id_violencia_instancia_den_tipo,
+                estado: 'MODIFICADO', 
+                usu_mod: req.body.usu_mod,
                 fec_mod: req.body.fec_mod
               })
               .then(() =>{  

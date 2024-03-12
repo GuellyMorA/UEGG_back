@@ -1,25 +1,25 @@
-const UeggViolenciahAccionesTipo = require('../../models/uegg').uegg_violencia_acciones_tipo ; 
+const UeggViolenciaQDenunciaTipo = require('../../models/uegg').uegg_violencia_q_denuncia_tipo ; 
 
 module.exports = {
     list(req, res) {
-        return UeggViolenciahAccionesTipo
+        return UeggViolenciaQDenunciaTipo
             .findAll({})
-            .then((ueggViolenciahAccionesTipo) => res.status(200).send(ueggViolenciahAccionesTipo)) 
+            .then((UeggViolenciaQDenunciaTipo) => res.status(200).send(UeggViolenciaQDenunciaTipo)) 
             .catch((error) => { res.status(400).send(error); });
     },
 
     getById(req, res) {
         console.log(req.params.id);
-        return UeggViolenciahAccionesTipo
+        return UeggViolenciaQDenunciaTipo
             .findByPk(req.params.id)
-            .then((ueggViolenciahAccionesTipo) => { 
-                console.log(ueggViolenciahAccionesTipo);
-                if (!ueggViolenciahAccionesTipo) {
+            .then((UeggViolenciaQDenunciaTipo) => { 
+                console.log(UeggViolenciaQDenunciaTipo);
+                if (!UeggViolenciaQDenunciaTipo) {
                     return res.status(404).send({
-                        message: 'UeggViolenciahAccionesTipo no encontrado',
+                        message: 'UeggViolenciaQDenunciaTipo no encontrado',
                     });
                 }
-                return res.status(200).send(ueggViolenciahAccionesTipo);
+                return res.status(200).send(UeggViolenciaQDenunciaTipo);
             })
             .catch((error) => res.status(400).send(error));
     },
@@ -27,36 +27,36 @@ module.exports = {
 
 
     add(req, res) {
-        return UeggViolenciahAccionesTipo.create({
-           
+        return UeggViolenciaQDenunciaTipo.create({
+            descripcion: req.body.descripcion,
             estado: 'ACTIVO' ,
             usu_cre: req.body.usu_cre ,
             fec_cre: req.body.fec_cre 
           
         })
-          .then(ueggViolenciahAccionesTipo => res.status(201).send(ueggViolenciahAccionesTipo))
+          .then(UeggViolenciaQDenunciaTipo => res.status(201).send(UeggViolenciaQDenunciaTipo))
           .catch(error => res.status(400).send(error));
       },
     
       update(req, res) {
-        console.log(UeggViolenciahAccionesTipo);
-        return UeggViolenciahAccionesTipo.findByPk(req.params.Id, {})
-          .then(ueggViolenciahAccionesTipo => {
-            if (!ueggViolenciahAccionesTipo) {
+        console.log(UeggViolenciaQDenunciaTipo);
+        return UeggViolenciaQDenunciaTipo.findByPk(req.params.Id, {})
+          .then(UeggViolenciaQDenunciaTipo => {
+            if (!UeggViolenciaQDenunciaTipo) {
               return res.status(404).send({
-                message: "ueggViolenciahAccionesTipo Not Found"
+                message: "UeggViolenciaQDenunciaTipo Not Found"
               });
             }
-            return ueggViolenciahAccionesTipo
+            return UeggViolenciaQDenunciaTipo
               .update({
-               
+                descripcion: req.body.descripcion || UeggViolenciaQDenunciaTipo.descripcion,
                 estado: 'MODIFICADO',  
                 usu_mod: req.body.usu_mod ,
                 fec_mod: req.body.fec_mod
               })
               .then(() =>{  
                  console.log(' *************SI UPDATE OK');
-                 res.status(200).send(ueggViolenciahAccionesTipo)   })
+                 res.status(200).send(UeggViolenciaQDenunciaTipo)   })
               .catch(error => {
                 console.log(' *************ERROR UPDATE 1', error);
                 res.status(400).send(error)  });
@@ -67,14 +67,14 @@ module.exports = {
       },
     
       delete(req, res) {
-        return UeggViolenciahAccionesTipo.findByPk(req.params.Id)
-          .then(ueggViolenciahAccionesTipo => {
-            if (!ueggViolenciahAccionesTipo) {
+        return UeggViolenciaQDenunciaTipo.findByPk(req.params.Id)
+          .then(UeggViolenciaQDenunciaTipo => {
+            if (!UeggViolenciaQDenunciaTipo) {
               return res.status(400).send({
-                message: "ueggViolenciahAccionesTipo Not Found"
+                message: "UeggViolenciaQDenunciaTipo Not Found"
               });
             }
-            return ueggViolenciahAccionesTipo
+            return UeggViolenciaQDenunciaTipo
               .destroy()
               .then(() =>{
                 console.log(' ************SI DELETE OK');

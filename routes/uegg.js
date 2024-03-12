@@ -32,7 +32,7 @@ router.get('/ueggPcpaUnidadEductiva'        , UeggPcpaUnidadEductivaController.l
 router.get('/ueggPcpaConstruccion'          , UeggPcpaConstruccionController.list);
 router.get('/ueggPcpaComisionTipo'          , UeggPcpaComisionTipoController.list);
 router.get('/ueggViolenciaDna'        , UeggViolenciaDnaController.list);
-router.get('/ueggViolenciahAccionesTipo'        , ueggViolenciahAccionesTipoController.list);
+router.get('/ueggViolenciaAccionesTipo'        , URIErroreggViolenciaAccionesTipoController.list);
 
 
 router.get('/ueggPcpaUnidadEductiva/:id'    , UeggPcpaUnidadEductivaController.getById);
