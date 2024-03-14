@@ -28,13 +28,25 @@ module.exports = {
 
     add(req, res) {
         return UeggPcpaUnidadEductiva.create({
-            nombres_director: req.body.nombres_director ,
-            apellidos_director: req.body.apellidos_director,
-            cod_rda_director: req.body.cod_rda_director ,
-            cod_director: req.body.cod_director ,
-            estado: 'ACTIVO' ,
-            usu_cre: req.body.usu_cre ,
-            fec_cre: req.body.fec_cre 
+          cod_ue: req.body.cod_ue,
+          desc_ue: req.body.desc_ue, 
+          cod_sie: req.body.cod_sie,
+          cod_rda_director: req.body.cod_rda_director,
+          cod_director: req.body.cod_director,
+          nombres_director: req.body.nombres_director,
+          apellidos_director: req.body.apellidos_director,
+     
+          cod_departamento: req.body.cod_departamento,
+          desc_departamento: req.body.desc_departamento,
+          cod_municipio: req.body.cod_municipio,
+          desc_municipio: req.body.desc_municipio,
+          cod_nivel: req.body.cod_nivel,
+          desc_nivel: req.body.desc_nivel,
+          modalidad: req.body.modalidad,
+     
+          estado: 'ACTIVO' ,
+          usu_cre: req.body.usu_cre ,
+          fec_cre: req.body.fec_cre 
           
         })
           .then(ueggPcpaUnidadEductiva => res.status(201).send(ueggPcpaUnidadEductiva))
@@ -52,10 +64,24 @@ module.exports = {
             }
             return ueggPcpaUnidadEductiva
               .update({
-                nombres_director: req.body.nombres_director  || ueggPcpaUnidadEductiva.nombres_director,
-                apellidos_director: req.body.apellidos_director || ueggPcpaUnidadEductiva.apellidos_director,
+                cod_ue: req.body.cod_ue || ueggPcpaUnidadEductiva.cod_ue,
+                desc_ue: req.body.desc_ue || ueggPcpaUnidadEductiva.desc_ue, 
+                cod_sie: req.body.cod_sie || ueggPcpaUnidadEductiva.cod_sie,
                 cod_rda_director: req.body.cod_rda_director || ueggPcpaUnidadEductiva.cod_rda_director,
                 cod_director: req.body.cod_director || ueggPcpaUnidadEductiva.cod_director,
+                nombres_director: req.body.nombres_director || ueggPcpaUnidadEductiva.nombres_director,
+                apellidos_director: req.body.apellidos_director || ueggPcpaUnidadEductiva.apellidos_director,
+          
+                cod_departamento: req.body.cod_departamento || ueggPcpaUnidadEductiva.cod_departamento,
+                desc_departamento: req.body.desc_departamento || ueggPcpaUnidadEductiva.desc_departamento,
+                cod_municipio: req.body.cod_municipio || ueggPcpaUnidadEductiva.cod_municipio,
+                desc_municipio: req.body.desc_municipio || ueggPcpaUnidadEductiva.desc_municipio,
+                cod_nivel: req.body.cod_nivel || ueggPcpaUnidadEductiva.cod_nivel,
+                desc_nivel: req.body.desc_nivel || ueggPcpaUnidadEductiva.desc_nivel,
+                modalidad: req.body.modalidad || ueggPcpaUnidadEductiva.modalidad,
+                latitud: req.body.latitud || ueggPcpaUnidadEductiva.latitud,
+                longitud: req.body.longitud || ueggPcpaUnidadEductiva.longitud,
+                
                 estado: 'MODIFICADO',  
                 usu_mod: req.body.usu_mod ,
                 fec_mod: req.body.fec_mod
