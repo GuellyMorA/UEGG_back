@@ -56,9 +56,9 @@ module.exports = {
               .update({
                 id_num_caso: req.body.id_num_caso || UeggViolenciaCasoDna.id_num_caso,
                 id_violencia_victima: req.body.id_violencia_victima || UeggViolenciaCasoDna.id_violencia_victima,
-                id_violencia_agresor_nombre: req.body.id_violencia_agresor_nombre || UeggViolenciaCasoDna.id_violencia_victima,,
-                id_violencia_hecho_tipo: req.body.id_violencia_hecho_tipo || UeggViolenciaCasoDna.id_violencia_victima,,
-                desc_hecho: req.body.desc_hecho || UeggViolenciaCasoDna.id_violencia_victima,,
+                id_violencia_agresor_nombre: req.body.id_violencia_agresor_nombre || UeggViolenciaCasoDna.id_violencia_victima,
+                id_violencia_hecho_tipo: req.body.id_violencia_hecho_tipo || UeggViolenciaCasoDna.id_violencia_victima,
+                desc_hecho: req.body.desc_hecho || UeggViolenciaCasoDna.id_violencia_victima,
                 recepcion_ficha: req.body.desc_hecho || UeggViolenciaCasoDna.recepcion_ficha,
                 estado: 'MODIFICADO',  
                 usu_mod: req.body.usu_mod ,
