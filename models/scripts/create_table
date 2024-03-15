@@ -25,7 +25,7 @@ CREATE TABLE uegg_pcpa_unidad_educativa (
 	modalidad varchar(100) NULL,
     latitud int4,
     longitud int4,
-    
+
     estado varchar(100),
     usu_cre varchar(100),
     usu_mod varchar(100),
@@ -378,7 +378,7 @@ CREATE TABLE uegg_emb_estudiante_derechos_seg (
 
     check_emb_relacion_concensuada bool NULL,
     check_emb_agresion_sexual bool NULL,
-check_director_victima_violencia bool NULL,
+    check_director_victima_violencia bool NULL,
 	cod_caso_denuncia  varchar(100) NULL,
    	nombre_adolescente  varchar(500) NULL,
     fec_denuncia date,
