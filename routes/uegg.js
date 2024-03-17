@@ -155,7 +155,7 @@ router.post('/ueggPcpaIndicadoresEjecucion',          ueggPcpaIndicadoresEjecuci
 router.post('/ueggPcpaIndicadoresTipo',               ueggPcpaIndicadoresTipoController.add);                                                                        
 router.post('/ueggPcpaMiembroComision',               ueggPcpaMiembroComisionController.add);                                                                        
 router.post('/ueggPcpaMiembroTipo',                   ueggPcpaMiembroTipoController.add);                                                                        
-router.post('/ueggPcpaReporteEmbarazoTipo',           ueggPcpaReporteEmbarazoTipoController.add);                                                                        
+//router.post('/ueggPcpaReporteEmbarazoTipo',           ueggPcpaReporteEmbarazoTipoController.add);                                                                        
 router.post('/ueggPcpaUnidadEductiva',                ueggPcpaUnidadEductivaController.add);                                                                        
 router.post('/ueggViolenciaAccionesTipo',             ueggViolenciaAccionesTipoController.add);                                                                        
 router.post('/ueggViolenciaAgresor',                  ueggViolenciaAgresorController.add);                                                                        
@@ -247,7 +247,7 @@ router.put('/ueggPcpaIndicadoresEjecucion/:id',          ueggPcpaIndicadoresEjec
 router.put('/ueggPcpaIndicadoresTipo/:id',               ueggPcpaIndicadoresTipoController.update);                                                                        
 router.put('/ueggPcpaMiembroComision/:id',               ueggPcpaMiembroComisionController.update);                                                                        
 router.put('/ueggPcpaMiembroTipo/:id',                   ueggPcpaMiembroTipoController.update);                                                                        
-router.put('/ueggPcpaReporteEmbarazoTipo/:id',           ueggPcpaReporteEmbarazoTipoController.update);                                                                        
+//router.put('/ueggPcpaReporteEmbarazoTipo/:id',           ueggPcpaReporteEmbarazoTipoController.update);                                                                        
 router.put('/ueggPcpaUnidadEductiva/:id',                ueggPcpaUnidadEductivaController.update);                                                                        
 router.put('/ueggViolenciaAccionesTipo/:id',             ueggViolenciaAccionesTipoController.update);                                                                        
 router.put('/ueggViolenciaAgresor/:id',                  ueggViolenciaAgresorController.update);                                                                        
@@ -294,7 +294,7 @@ router.delete('/ueggPcpaIndicadoresEjecucion/:id',          ueggPcpaIndicadoresE
 router.delete('/ueggPcpaIndicadoresTipo/:id',               ueggPcpaIndicadoresTipoController.delete);                                                                        
 router.delete('/ueggPcpaMiembroComision/:id',               ueggPcpaMiembroComisionController.delete);                                                                        
 router.delete('/ueggPcpaMiembroTipo/:id',                   ueggPcpaMiembroTipoController.delete);                                                                        
-router.delete('/ueggPcpaReporteEmbarazoTipo/:id',           ueggPcpaReporteEmbarazoTipoController.delete);                                                                        
+//router.delete('/ueggPcpaReporteEmbarazoTipo/:id',           ueggPcpaReporteEmbarazoTipoController.delete);                                                                        
 router.delete('/ueggPcpaUnidadEductiva/:id',                ueggPcpaUnidadEductivaController.delete);                                                                        
 router.delete('/ueggViolenciaAccionesTipo/:id',             ueggViolenciaAccionesTipoController.delete);                                                                        
 router.delete('/ueggViolenciaAgresor/:id',                  ueggViolenciaAgresorController.delete);                                                                        

@@ -26,7 +26,7 @@ module.exports = {
 
     add(req, res) {
         return UeggEmbEstudianteDerecho.create({
-        	id_pcpa_unidad_eductiva: req.body.id_pcpa_unidad_eductiva,
+        	  id_pcpa_unidad_eductiva: req.body.id_pcpa_unidad_eductiva,
             id_emb_informe_embarazo: req.body.id_emb_informe_embarazo,
 
             cod_rude: req.body.cod_rude,
@@ -61,7 +61,7 @@ module.exports = {
           .catch(error => res.status(400).send(error));
       },
     
-      update(req, res) {
+    update(req, res) {
         console.log(UeggEmbEstudianteDerecho);
         return UeggEmbEstudianteDerecho.findByPk(req.params.Id, {})
           .then(ueggEmbEstudianteDerecho => {
@@ -114,7 +114,7 @@ module.exports = {
             res.status(400).send(error)  });
       },
     
-      delete(req, res) {
+    delete(req, res) {
         return UeggEmbEstudianteDerecho.findByPk(req.params.Id)
           .then(ueggEmbEstudianteDerecho => {
             if (!ueggEmbEstudianteDerecho) {

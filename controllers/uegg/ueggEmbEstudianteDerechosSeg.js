@@ -51,7 +51,7 @@ module.exports = {
           .catch(error => res.status(400).send(error));
       },
     
-      update(req, res) {
+    update(req, res) {
         console.log(UeggEmbEstudianteDerechoSeg);
         return UeggEmbEstudianteDerechoSeg.findByPk(req.params.Id, {})
           .then(ueggEmbEstudianteDerechoSeg => {
