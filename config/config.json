@@ -3,7 +3,7 @@
     "development": {
         "username": "postgres",
         "password": "12345678",
-        "database": "sie_nueva",
+        "database": "uegg",
         "host": "localhost",
         "port": "5432",
         "dialect": "postgres"
