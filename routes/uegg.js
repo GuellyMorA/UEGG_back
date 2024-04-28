@@ -107,7 +107,10 @@ router.get('/ueggPcpaComisionTipo',                  ueggPcpaComisionTipoControl
 router.get('/ueggPcpaConstruccion',                  ueggPcpaConstruccionController.list);                                                                        
 router.get('/ueggPcpaIndicadoresEjecucion',          ueggPcpaIndicadoresEjecucionController.list);                                                                        
 router.get('/ueggPcpaIndicadoresTipo',               ueggPcpaIndicadoresTipoController.list);                                                                        
-router.get('/ueggPcpaMiembroComision',               ueggPcpaMiembroComisionController.list);                                                                        
+router.get('/ueggPcpaMiembroComision',               ueggPcpaMiembroComisionController.list); 
+router.get('/listMiembrosComision',                  ueggPcpaMiembroComisionController.listMiembrosComision);                                                                       
+
+
 router.get('/ueggPcpaMiembroTipo',                   ueggPcpaMiembroTipoController.list);                                                                        
 router.get('/ueggPcpaReporteEmbarazoTipo',           ueggPcpaReporteEmbarazoTipoController.list);                                                                        
 router.get('/ueggPcpaUnidadEductiva',                ueggPcpaUnidadEductivaController.list);                                                                        

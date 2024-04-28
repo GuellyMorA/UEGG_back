@@ -1,4 +1,5 @@
 const UeggPcpaMiembroComision = require('../../models/uegg').uegg_pcpa_miembro_comision ; 
+const sequelize = UeggPcpaMiembroComision.sequelize;
 
 module.exports = {                                                                                                                                                                                                                                                                                                                                                                                                                             
     list(req, res) {
@@ -7,6 +8,28 @@ module.exports = {
             .then((ueggPcpaMiembroComision) => res.status(200).send(ueggPcpaMiembroComision)) 
             .catch((error) => { res.status(400).send(error); });
     },
+
+
+    async listMiembrosComision(req, res) {
+      let ie_tipo = null; //await GeneralService.getInstitucioneducativaTipo();
+      return sequelize.query(`select upue.id,  upue.cod_sie,upue.desc_ue, upue.desc_municipio , upue.desc_municipio  , upue.desc_nivel , upue.modalidad  , upue.nombres_director ||'-'|| upue.apellidos_director as nombres_director
+      , upcon.id, upcon.fecha_registro  , upcon.check_diagnostico_pcpa 
+      , upct.id, upct.desc_comision_tipo 
+      , upmt.id, upmt.desc_miembro_tipo
+      , upmc.id, upmc.nombres_miembro || ' ' || upmc.apellidos_miembro  as nombres_miembro
+        from uegg_pcpa_construccion upcon 
+          join uegg_pcpa_unidad_eductiva upue   on upcon.id_pcpa_unidad_eductiva = upue.id 
+          join uegg_pcpa_miembro_comision upmc  on upmc.id_pcpa_construccion = upcon.id
+          join uegg_pcpa_miembro_tipo upmt      on upmt.id = upmc.id_pcpa_miembro_tipo 
+          join uegg_pcpa_comision_tipo upct     on upct.id = upmc.id_pcpa_comision_tipo      
+        WHERE upue.id = ${ie_tipo} and upue.id = ` + ie_tipo, {
+          type: sequelize.QueryTypes.SELECT, plain: true, raw: true 
+        })
+          .then((subcentros) => res.status(200).send(subcentros))
+          .catch((error) => { res.status(400).send(error); });
+    },
+
+
 
     getById(req, res) {
         console.log(req.params.id); 
